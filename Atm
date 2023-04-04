@@ -1,0 +1,71 @@
+import java.util.*;
+
+class bank {
+    public static void main(String[] args) {
+        Scanner x = new Scanner(System.in);
+        System.out.println("Welcome to Our Bank ABC\nYour safety is our topmost priority");
+        System.out.println("Are you an existing customer?\nEnter '1' for Yes or '2' for No");
+        int isExistingCustomer = x.nextInt();
+
+        if (isExistingCustomer == 1) {
+            double balance = 13000;
+            System.out.println("How can we assist you?\n <1> Deposit money\n <2> Withdraw money\n <3> Check balance");
+            int n = x.nextInt();
+            switch (n) {
+                case 1:
+                    System.out.println("Enter the amount you want to deposit: ");
+                    double depositAmount = x.nextDouble();
+                    System.out.println("Please insert the money.\nYour money is deposited. Please check your bank balance.");
+                    balance += depositAmount;
+                    break;
+                case 2:
+                    System.out.println("Enter the amount in 10's : ");
+                    double withdrawAmount = x.nextDouble();
+                    if (balance >= withdrawAmount && withdrawAmount % 10 == 0) {
+                        System.out.println("Please collect the amount: ");
+                        balance -= withdrawAmount;
+                    } else {
+                        System.out.println("Insufficient Balance or incorrect amount. Please try again.");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Your account balance is: " + balance);
+                    break;
+                default:
+                    System.out.println("Invalid input.");
+                    break;
+            }
+            System.out.println("Do you want to display your balance?\nEnter '1' for Yes or '2' for No");
+            int displayBalance = x.nextInt();
+            if (displayBalance == 1) {
+                System.out.println("Your Balance: " + balance);
+                System.out.println("Thank you for banking with us.");
+            } else {
+                System.out.println("Thank you for banking with us.");
+            }
+        } else if (isExistingCustomer == 2) {
+            System.out.println("Thank you for choosing to bank with us.\nPlease fill the details below.");
+            System.out.println("Please enter your age: ");
+            int age = x.nextInt();
+            if (age >= 18) {
+                System.out.println("Enter Your Name: ");
+                String name = x.next();
+                System.out.println("Enter your Date of Birth (dd/mm/yyyy): ");
+                String dob = x.next();
+                System.out.println("Enter your Aadhaar number: ");
+                Long aadhaar = x.nextLong();
+                System.out.println("Enter your mobile number: ");
+                Long mobile = x.nextLong();
+                System.out.println("How much would you like to deposit as your initial balance?");
+                double balance = x.nextDouble();
+                System.out.println("Create a password: ");
+                String pin = x.next();
+                System.out.println("Thank You for choosing to bank with us. Your account is now created.");
+            } else {
+                System.out.println("Sorry, you are too young to open a bank account.");
+            }
+        } else {
+            System.out.println("Invalid input.");
+        }
+    }
+}
